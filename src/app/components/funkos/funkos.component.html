@@ -1,0 +1,6 @@
+<p>Estado del carrito: {{miCarrito.length}} valor: {{valorCarrito}} </p>
+
+<div class="row row-cols-3">
+    <app-home *ngFor="let producto of productos" [producto]="producto" (ProductoAgregado)="onAgregarProducto($event)"></app-home>
+</div>
+

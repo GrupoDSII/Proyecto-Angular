@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-img',
-  templateUrl: './img.component.html',
+  selector: 'app-nav',
+  templateUrl: './nav.component.html',
   styles: [
   ]
 })
-export class ImgComponent implements OnInit {
-  imagen:string="";
+export class NavComponent implements OnInit {
 
   constructor() { }
 
