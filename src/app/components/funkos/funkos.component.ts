@@ -55,7 +55,7 @@ export class FunkosComponent implements OnInit {
   valorCarrito: number = 0;
 
   constructor(
-    private tiendaService: TiendaService
+    private tiendaService: TiendaService //inyector
   ) {
     this.miCarrito = this.tiendaService.getMiCarrito();
    }

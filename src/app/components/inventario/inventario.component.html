@@ -1,0 +1,114 @@
+<div class="container">
+    <div class="row align-items-start">
+      <div class="col">
+        <h3>Productos disponibles</h3>
+      </div>
+      <div class="col">
+        
+      </div>
+  <div class="col">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Agregar producto</button>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="producto-nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="producto-nombre" aria-describedby="nombreHelp" [(ngModel)]="producto.nombre">
+            <div id="nombreHelp" class="form-text">Indique el nombre del producto</div>
+          </div>
+          <div class="mb-3">
+              <label for="producto-precio" class="form-label">Precio</label>
+              <input type="text" class="form-control" id="producto-precio" aria-describedby="precioHelp" [(ngModel)]="producto.precio">
+              <div id="presioHelp" class="form-text">Indique el precio del producto</div>
+            </div>
+            <div class="mb-3">
+              <label for="producto-cantidad" class="form-label">Cantidad</label>
+              <input type="text" class="form-control" id="producto-cantidad" aria-describedby="cantidadHelp" [(ngModel)]="producto.cantidad"> 
+              <div id="cantidadHelp" class="form-text">Indique la cantidad del producto</div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button class="btn btn-primary" (click)="onDatos()"> Agregar a tienda 01</button>
+          <button class="btn btn-primary" (click)="onDatos1()"> Agregar a tienda 02</button>
+          <button class="btn btn-primary" (click)="onDatos2()"> Agregar a tienda 03</button>
+        </div>
+      </div>
+    </div>
+  </div>
+      </div>
+    </div>
+  
+  <!-- Tabla 01 -->
+  <h5>TIENDA 01</h5>
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nombre del producto</th>
+        <th scope="col">Precio del producto</th>
+        <th scope="col">Cantidad del producto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor= "let prod of productos index as i"> 
+        <td>{{ prod.nombre }}</td>
+        <td>{{ prod.precio }}</td>
+        <td>{{ prod.cantidad }}</td>
+        <td><button type="button" class="btn btn-info">Actualizar</button></td>
+        <td><button type="button" class="btn btn-warning"(click)="onEliminar(i)">Eliminar</button></td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+  <!-- Tabla 02 -->
+  <h5>TIENDA 02</h5>
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nombre del producto</th>
+        <th scope="col">Precio del producto</th>
+        <th scope="col">Cantidad del producto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor= "let prod of productos1 index as i"> 
+        <td>{{ prod.nombre }}</td>
+        <td>{{ prod.precio }}</td>
+        <td>{{ prod.cantidad }}</td>
+        <td><button type="button" class="btn btn-info">Actualizar</button></td>
+        <td><button type="button" class="btn btn-warning"(click)="onEliminar1(i)">Eliminar</button></td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+  <!-- Tabla 03 -->
+  <h5>TIENDA 03</h5>
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nombre del producto</th>
+        <th scope="col">Precio del producto</th>
+        <th scope="col">Cantidad del producto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor= "let prod of productos2 index as i"> 
+        <td>{{ prod.nombre }}</td>
+        <td>{{ prod.precio }}</td>
+        <td>{{ prod.cantidad }}</td>
+        <td><button type="button" class="btn btn-info">Actualizar</button></td>
+        <td><button type="button" class="btn btn-warning"(click)="onEliminar2(i)">Eliminar</button></td>
+      </tr>
+      
+    </tbody>
+  </table>

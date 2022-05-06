@@ -9,6 +9,8 @@ import { FunkosComponent } from './components/funkos/funkos.component';
 import { NavComponent } from './components/nav/nav.component';
 import { FormsModule } from '@angular/forms';
 import { NostrosComponent } from './components/nostros/nostros.component';
+import { InicioComponent } from './components/inicio/inicio.component';
+import { InventarioComponent } from './components/inventario/inventario.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { NostrosComponent } from './components/nostros/nostros.component';
     HomeComponent,
     FunkosComponent,
     NavComponent,
-    NostrosComponent
+    NostrosComponent,
+    InicioComponent,
+    InventarioComponent
   ],
   imports: [
     BrowserModule,
