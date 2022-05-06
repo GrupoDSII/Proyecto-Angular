@@ -1,6 +1,33 @@
-<p>Estado del carrito: {{miCarrito.length}} valor: {{valorCarrito}} </p>
-
-<div class="row row-cols-3">
-    <app-home *ngFor="let producto of productos" [producto]="producto" (ProductoAgregado)="onAgregarProducto($event)"></app-home>
+<div class="container">
+    <h1>⠀</h1>
+    <h2 style="color: #038c7f" class="text-one">FUNKOMANIA, OFRECE:</h2>
+    <h1>⠀</h1>
+    <div class="row align-items-start">
+      <div class="col-9">
+        <div class="row row-cols-3">
+            <app-home *ngFor="let producto of productos" [producto]="producto" (ProductoAgregado)="onAgregarProducto($event)"></app-home>
+        </div>
+      </div>
+      <div class="col-3">
+        <h5>Compras:</h5>
+  
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Nombre del producto</th>
+              <th scope="col">Precio del producto</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor= "let funk of miCarrito index as i"> 
+              <td>{{ funk.nombre }}</td>
+              <td>{{ funk.precio }}</td>
+            </tr>
+          </tbody>
+        </table>
+          <p>Nº De Compras: {{miCarrito.length}} Total: S/. {{valorCarrito}} </p>
+      </div>
+    </div>
 </div>
+
 
