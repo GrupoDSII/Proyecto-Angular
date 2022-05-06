@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { NostrosComponent } from './components/nostros/nostros.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { InventarioComponent } from './components/inventario/inventario.component';
+import { ProductoComponent } from './components/producto/producto.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { InventarioComponent } from './components/inventario/inventario.componen
     NavComponent,
     NostrosComponent,
     InicioComponent,
-    InventarioComponent
+    InventarioComponent,
+    ProductoComponent
   ],
   imports: [
     BrowserModule,
