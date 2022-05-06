@@ -7,6 +7,8 @@ import { ImgComponent } from './components/img/img.component';
 import { HomeComponent } from './components/home/home.component';
 import { FunkosComponent } from './components/funkos/funkos.component';
 import { NavComponent } from './components/nav/nav.component';
+import { FormsModule } from '@angular/forms';
+import { NostrosComponent } from './components/nostros/nostros.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { NavComponent } from './components/nav/nav.component';
     ImgComponent,
     HomeComponent,
     FunkosComponent,
-    NavComponent
+    NavComponent,
+    NostrosComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

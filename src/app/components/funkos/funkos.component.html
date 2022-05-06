@@ -1,7 +1,7 @@
 <div class="container">
-    <h1>⠀</h1>
+    <h5>⠀</h5>
     <h2 style="color: #038c7f" class="text-one">FUNKOMANIA, OFRECE:</h2>
-    <h1>⠀</h1>
+    <h5>⠀</h5>
     <div class="row align-items-start">
       <div class="col-9">
         <div class="row row-cols-3">
@@ -9,8 +9,9 @@
         </div>
       </div>
       <div class="col-3">
-        <h5>Compras:</h5>
-  
+        <h5>Carrito de Compras:</h5>
+        <img src="https://i.pinimg.com/originals/31/3c/11/313c1187480abab29cbfabfc39c8b9be.png" width ="100" alt="">
+
         <table class="table">
           <thead>
             <tr>
@@ -20,12 +21,112 @@
           </thead>
           <tbody>
             <tr *ngFor= "let funk of miCarrito index as i"> 
-              <td>{{ funk.nombre }}</td>
-              <td>{{ funk.precio }}</td>
+              <td>- {{ funk.nombre }}</td>
+              <td>S/. {{ funk.precio }}</td>
             </tr>
           </tbody>
         </table>
           <p>Nº De Compras: {{miCarrito.length}} Total: S/. {{valorCarrito}} </p>
+          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+             Pagar
+          </button>
+        <!-- Modal del pago -->
+        <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModal1Label" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModal1Label">Pago</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="cliente-nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="cliente-nombre" aria-describedby="nombreHelp" [(ngModel)]="cliente.nombre">
+                        <div id="nombreHelp" class="form-text">Indique el nombre del cliente</div>
+                      </div>
+                      <div class="mb-3">
+                          <label for="cliente-apellidos" class="form-label">Apellidos</label>
+                          <input type="text" class="form-control" id="cliente-apellidos" aria-describedby="apellidosHelp" [(ngModel)]="cliente.apellidos">
+                          <div id="apellidosHelp" class="form-text">Indique el apellidos del cliente</div>
+                        </div>
+                        <div class="mb-3">
+                          <label for="cliente-email" class="form-label">E-Mail</label>
+                          <input type="text" class="form-control" id="cliente-email" aria-describedby="emailHelp" [(ngModel)]="cliente.email"> 
+                          <div id="emailHelp" class="form-text">Indique email del cliente</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cliente-Tarjeta" class="form-label">Nro Tarjeta</label>
+                            <input type="text" class="form-control" id="cliente-Tarjeta" aria-describedby="TarjetaHelp" [(ngModel)]="cliente.Tarjeta"> 
+                            <div id="TarjetaHelp" class="form-text">Indique Nro de Tarjeta</div>
+                        </div>
+                         <div class="mb-3">
+                          <label for="cliente-CVV" class="form-label">CVV</label>
+                          <input type="text" class="form-control" id="cliente-CVV" aria-describedby="CVVHelp" [(ngModel)]="cliente.CVV"> 
+                          <div id="CVVHelp" class="form-text">Indique CVV</div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="input-group mb-3">
+                                <label class="input-group-text" for="inputGroupSelect01">Precio</label>
+                                <select class="form-select" id="inputGroupSelect01" [(ngModel)]="cliente.precio">
+                                  <option value="{{valorCarrito}}">{{valorCarrito}}</option>
+                                </select>
+                              </div>
+                          </div>
+
+                        <!--  -->
+                        
+                        <!--  -->
+                        <div class="mb-3">
+                            <p>Total: S/. {{valorCarrito}} </p>
+                          </div>
+                        
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" (click)="onDatos()" (click)="Vaciar()">Realizar pago</button>
+                </div>
+            </div>
+            </div>
+        </div>
+        
+          <h5>⠀</h5>
+          <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Visualizar Facturas
+          </button>
+          
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Datos Cliente</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Nombre Cliente</th>
+                            <th scope="col">Apellidos Cliente</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Precio Compra</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor= "let funk of lista index as i"> 
+                                <td> {{ funk.nombre }}</td>
+                                <td>  {{funk.apellidos }}</td>
+                                <td>  {{ funk.email }}</td>
+                                <td>Total: S/. {{ funk.precio }}</td>
+                              </tr>
+                        </tbody>
+                      </table>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrrar</button>
+                </div>
+              </div>
+            </div>
+          </div> 
       </div>
     </div>
 </div>

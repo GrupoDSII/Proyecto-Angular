@@ -20,4 +20,5 @@ export class TiendaService {
   getMiCarrito(): Producto[]{
     return this.miCarrito;
   }
+  
 }

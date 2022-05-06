@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { cliente } from 'src/app/interfaces/cliente';
 import { Producto } from 'src/app/interfaces/producto';
 import { TiendaService } from 'src/app/servicios/tienda.service';
 
@@ -9,6 +10,8 @@ import { TiendaService } from 'src/app/servicios/tienda.service';
   ]
 })
 export class FunkosComponent implements OnInit {
+  public cliente:cliente=this.FunkoVacio();
+  public lista: cliente[]=[];
   productos: Producto[] = [
     {
       id:"1",
@@ -56,9 +59,29 @@ export class FunkosComponent implements OnInit {
   ) {
     this.miCarrito = this.tiendaService.getMiCarrito();
    }
+   FunkoVacio(): cliente{
+    return{
+      nombre: "",
+      apellidos: "",
+      email: "",
+      Tarjeta:"",
+      CVV:"",
+      precio:0,
+    };
+  }
 
+   onDatos(): void {
+    this.lista.push(this.cliente);
+    this.cliente= this.FunkoVacio();
+   }
+   
   ngOnInit(): void {
   }
+  Vaciar(): void {
+    this.miCarrito.splice(0, this.miCarrito.length);
+   }
+
+
 
   onAgregarProducto(producto:Producto): void {
     console.log(producto.nombre,"agregado");
